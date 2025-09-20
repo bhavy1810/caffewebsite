@@ -33,7 +33,7 @@ export default function Cart() {
       image: item.image,
       quantity: item.quantity.toString(),
     }).toString();
-    window.open(`/order?${query}`);
+    window.open(`/order?${query}`, "_blank");
     removeFromCart(cartItems.indexOf(item));
     updateLocalStorage(cartItems.filter((i) => i !== item));
   };
@@ -41,9 +41,7 @@ export default function Cart() {
   const handleOrderAll = () => {
     if (cartItems.length === 0) return;
     localStorage.setItem("cart", JSON.stringify(cartItems));
-    window.open("/order");
-    setCartItems([]);
-    localStorage.removeItem("cart");
+    window.location.href = "/orderall";
   };
 
   const handleRemoveAll = () => {
