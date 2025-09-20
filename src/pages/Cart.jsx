@@ -33,7 +33,7 @@ export default function Cart() {
       image: item.image,
       quantity: item.quantity.toString(),
     }).toString();
-    window.open(`/order?${query}`, "_blank");
+    window.open(`/order?${query}`);
     removeFromCart(cartItems.indexOf(item));
     updateLocalStorage(cartItems.filter((i) => i !== item));
   };

@@ -9,6 +9,10 @@ export default function Menu() {
       : priceValue;
   };
 
+  const handleOrderNow = (item) => {
+    window.open("/order").focus();
+  }
+
   const handleAddToCart = (item) => {
     const cleanItem = { ...item, price: normalizePrice(item.price) };
     const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -141,7 +145,7 @@ export default function Menu() {
               <p className="text-gray-800 font-bold mb-4">{item.price}</p>
               <button
                 onClick={() =>
-                  window.open("/order").focus()
+                  handleOrderNow(item)
                 }
                 className="bg-gray-800 hover:bg-yellow-600 text-white px-4 py-2 rounded-xl font-semibold w-full"
               >
