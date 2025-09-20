@@ -41,7 +41,9 @@ export default function Cart() {
   const handleOrderAll = () => {
     if (cartItems.length === 0) return;
     localStorage.setItem("cart", JSON.stringify(cartItems));
-    window.location.href = "/orderall";
+    window.open("/order");
+    setCartItems([]);
+    localStorage.removeItem("cart");
   };
 
   const handleRemoveAll = () => {
